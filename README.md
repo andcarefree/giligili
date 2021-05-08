@@ -9,6 +9,7 @@
 6. [Gin-Cors](https://github.com/gin-contrib/cors): Gin框架提供的跨域中间件
 7. 本项目是使用基于cookie实现的session来保存登录状态的，如果需要可以自行修改为token验证
 
+## 项目功能路由
 
 1. 创建了用户模型
 2. 实现了```/api/v1/user/register```用户注册接口

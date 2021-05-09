@@ -41,7 +41,7 @@ func NewRouter() *gin.Engine {
 		v1.GET("/videos/:id",api.ShowVideo)
 		v1.GET("/videos",api.ListVideos)
 		v1.PUT("/videos/:id",api.UpdateVideo)
-		v1.DELETE("/videos/:id",api.DeleteVideo)
+		v1.DELETE("/video/:id",api.DeleteVideo)
 	}
 	return r
 }

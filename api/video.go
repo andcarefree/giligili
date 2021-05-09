@@ -29,4 +29,9 @@ func CreateVideo(c *gin.Context) {
 func ShowVideo(c *gin.Context) {}
 func ListVideos(c *gin.Context) {}
 func UpdateVideo(c *gin.Context) {}
-func DeleteVideo(c *gin.Context) {}
+
+func DeleteVideo(c *gin.Context) {
+	service := service.DeleteVideoService{}
+	res := service.Delete(c.Param("id"))
+	c.JSON(200,res)
+}

@@ -45,7 +45,15 @@ func ListVideos(c *gin.Context) {
 		c.JSON(200,ErrorResponse(err))
 	}
 }
-func UpdateVideo(c *gin.Context) {}
+func UpdateVideo(c *gin.Context) {
+	service := service.UpdateVideoService{}
+	if err := c.ShouldBind(&service); err==nil{
+		res := service.Update(c.Param("id"))
+		c.JSON(200,res)
+	}else{
+		c.JSON(200,ErrorResponse(err))
+	}
+}
 
 func DeleteVideo(c *gin.Context) {
 	service := service.DeleteVideoService{}

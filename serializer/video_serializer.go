@@ -18,3 +18,11 @@ func BuildVideo(item model.Video) Video {
 		CreatAt: item.CreatedAt.Unix(),
 	}
 }
+
+func BuildVideos(items []model.Video) (videos []Video) {
+	for _,item :=range items {
+		video := BuildVideo(item)
+		videos = append(videos,video)
+	}
+	return
+}

@@ -7,7 +7,7 @@ import (
 
 //模板
 /*func (c *gin.Context){
-	service := service.Serveice{}
+	service := service.Service{}
 	if err := c.ShouldBind(&service); err==nil{
 		res := service.Create()
 		c.JSON(200,res)
@@ -26,7 +26,16 @@ func CreateVideo(c *gin.Context) {
 	}
 }
 
-func ShowVideo(c *gin.Context) {}
+func ShowVideo(c *gin.Context) {
+	service := service.ShowVideoService{}
+	if err := c.ShouldBind(&service); err==nil{
+		res := service.Show(c.Param("id"))
+		c.JSON(200,res)
+	}else{
+		c.JSON(200,ErrorResponse(err))
+	}
+}
+
 func ListVideos(c *gin.Context) {}
 func UpdateVideo(c *gin.Context) {}
 

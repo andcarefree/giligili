@@ -1,6 +1,8 @@
 package serializer
 
-import "giligili/model"
+import (
+	"giligili/model"
+)
 
 //Video 视频序列化器
 type Video struct {
@@ -8,6 +10,7 @@ type Video struct {
 	Title string `json:"title"`
 	Info string `json:"info"`
 	CreatAt int64 `json:"creat_at"`
+	Clicks uint64
 }
 
 func BuildVideo(item model.Video) Video {
@@ -16,6 +19,7 @@ func BuildVideo(item model.Video) Video {
 		Title: item.Title,
 		Info: item.Info,
 		CreatAt: item.CreatedAt.Unix(),
+		Clicks: item.Clicks(),
 	}
 }
 

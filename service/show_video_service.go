@@ -20,6 +20,7 @@ func (service ShowVideoService)Show(id string) serializer.Response {
 		}
 	}
 	video.ClicksAdd()
+
 	return serializer.Response{
 		Data: serializer.BuildVideo(video),
 	}

@@ -21,4 +21,5 @@ func (v *Video) Clicks() uint64 {
 
 func (v *Video) ClicksAdd()  {
 	cache.RedisClient.Incr(cache.VideoClickKey(v.ID))
+	cache.RedisClient.ZIncrBy(cache.DailyRankKey,1,strconv.Itoa(int(v.ID)))
 }

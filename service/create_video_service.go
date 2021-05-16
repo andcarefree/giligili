@@ -8,12 +8,14 @@ import (
 type CreateVideoService struct {
 	Title string`form:"title" json:"title" binding:"required,min=2,max=30"`
 	Info string`form:"info" json:"info" binding:"min=0,max=200"`
+	AuthID uint //作者的user.ID
 }
 
 func (service CreateVideoService) Create() serializer.Response {
 	video := model.Video{
 		Title: service.Title,
 		Info: service.Info,
+		AuthID: service.AuthID,
 	}
 	err := model.DB.Create(&video).Error
 	if err != nil{

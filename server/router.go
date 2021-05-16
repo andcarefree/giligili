@@ -35,14 +35,18 @@ func NewRouter() *gin.Engine {
 			// User Routing
 			auth.GET("user/me", api.UserMe)
 			auth.DELETE("user/logout", api.UserLogout)
+
+			//用户对视频的提交、修改、创建
+			v1.POST("/video",api.CreateVideo)
+			v1.PUT("/video/:id",api.UpdateVideo)
+			v1.DELETE("/video/:id",api.DeleteVideo)
 		}
 
-		v1.POST("/video",api.CreateVideo)
+		//查看视频
 		v1.GET("/video/:id",api.ShowVideo)
 		v1.GET("/videos",api.ListVideos)
-		v1.PUT("/video/:id",api.UpdateVideo)
-		v1.DELETE("/video/:id",api.DeleteVideo)
 
+		//查看排行榜
 		v1.GET("/rank/daily",api.DailyRank)
 	}
 	return r

@@ -8,6 +8,7 @@ import (
 
 type Video struct {
 	gorm.Model
+	AuthID uint
 	Title string
 	Info string
 }

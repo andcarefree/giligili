@@ -1,6 +1,7 @@
 package api
 
 import (
+	"giligili/model"
 	"giligili/service"
 	"github.com/gin-gonic/gin"
 )
@@ -19,6 +20,11 @@ import (
 func CreateVideo(c *gin.Context) {
 	service := service.CreateVideoService{}
 	if err := c.ShouldBind(&service); err==nil{
+		//绑定作者id
+		//TODO 感觉这里不太优雅，看看有没有系统一些使用的方法
+		User,_ := c.Get("user")
+		service.AuthID = User.(*model.User).ID
+
 		res := service.Create()
 		c.JSON(200,res)
 	}else{

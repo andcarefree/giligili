@@ -7,6 +7,8 @@ import (
 //Video 视频序列化器
 type Video struct {
 	ID uint `json:"id"`
+	AuthNickName string
+	AuthName string
 	Title string `json:"title"`
 	Info string `json:"info"`
 	CreatAt int64 `json:"creat_at"`
@@ -14,8 +16,12 @@ type Video struct {
 }
 
 func BuildVideo(item model.Video) Video {
+	var auth model.User
+	model.DB.Find(&auth,item.AuthID)
 	return Video{
 		ID: item.ID,
+		AuthNickName: auth.Nickname,
+		AuthName: auth.UserName,
 		Title: item.Title,
 		Info: item.Info,
 		CreatAt: item.CreatedAt.Unix(),

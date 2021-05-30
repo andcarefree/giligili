@@ -21,7 +21,7 @@ func CreateVideo(c *gin.Context) {
 	service := service.CreateVideoService{}
 	if err := c.ShouldBind(&service); err==nil{
 		//绑定作者id
-		//TODO 感觉这里不太优雅，看看有没有系统一些使用的方法
+		//之前有登录保护，所以这里一定能拿到user信息
 		User,_ := c.Get("user")
 		service.AuthID = User.(*model.User).ID
 

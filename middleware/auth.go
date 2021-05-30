@@ -32,7 +32,6 @@ func AuthRequired() gin.HandlerFunc {
 				return
 			}
 		}
-
 		c.JSON(200, serializer.CheckLogin())
 		c.Abort()
 	}

@@ -37,9 +37,9 @@ func NewRouter() *gin.Engine {
 			auth.DELETE("user/logout", api.UserLogout)
 
 			//用户对视频的提交、修改、删除
-			v1.POST("/video",api.CreateVideo)
-			v1.PUT("/video/:id",api.UpdateVideo)
-			v1.DELETE("/video/:id",api.DeleteVideo)
+			auth.POST("/video",api.CreateVideo)
+			auth.PUT("/video/:id",api.UpdateVideo)
+			auth.DELETE("/video/:id",api.DeleteVideo)
 		}
 
 		//查看视频

@@ -11,6 +11,8 @@ type Video struct {
 	AuthID uint
 	Title string
 	Info string
+	VideoURL string  //视频地址
+	PosterURL string //视频封面地址
 }
 
 func (v *Video) Clicks() uint64 {

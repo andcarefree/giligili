@@ -2,6 +2,8 @@ package model
 
 import (
 	"giligili/util"
+	"log"
+	"os"
 	"time"
 
 	"github.com/jinzhu/gorm"
@@ -17,6 +19,7 @@ var DB *gorm.DB
 func Database(connString string) {
 	db, err := gorm.Open("mysql", connString)
 	db.LogMode(true)
+	db.SetLogger(log.New(os.Stdout, "\r\n", 1))
 	// Error
 	if err != nil {
 		util.Log().Panic("连接数据库不成功", err)

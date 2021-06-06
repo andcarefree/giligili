@@ -9,6 +9,7 @@ require (
 	github.com/go-redis/redis v6.15.3+incompatible
 	github.com/jinzhu/gorm v1.9.10
 	github.com/joho/godotenv v1.3.0
+	github.com/mattn/go-colorable v0.1.8
 	github.com/minio/minio-go/v7 v7.0.10
 	golang.org/x/crypto v0.0.0-20200709230013-948cd5f35899
 	gopkg.in/go-playground/validator.v8 v8.18.2

@@ -13,6 +13,9 @@ import (
 
 var MinioClient *minio.Client
 
+const VIDEO string = "video"
+const IMAGE string = "image"
+
 // Minio 连接oss数据库minio
 func Minio(){
 	endpoint := os.Getenv("MINIO_ENDPOINT")
@@ -38,9 +41,9 @@ func Minio(){
 		MinioClient = minioClient
 
 		//存放视频内容的桶
-		BucketInit("video","us-east-1")
+		BucketInit(VIDEO,"us-east-1")
 		//存放视频封面的桶
-		BucketInit("image","us-east-1")
+		BucketInit(IMAGE,"us-east-1")
 
 		successFlag <- struct{}{}
 	}()
